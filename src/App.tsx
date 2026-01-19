@@ -32,7 +32,7 @@ function App() {
         </div>
       </div>
 
-      <div className="grid w-full aspect-[20/9] grid-cols-[Repeat(21,1fr)] grid-rows-[5vw_2fr_3fr_1fr]">
+      <div className="grid w-full aspect-[20/9] grid-cols-[Repeat(22,1fr)] grid-rows-[7vw_4fr_2fr_1fr]">
         <div className="[grid-area:2/2/3/8]">
           <h1 className="text-2xl text-white font-semibold">
             The place with the highest amount of trees
@@ -40,21 +40,19 @@ function App() {
           <div className="text-lg text-white font-semibold">
             Although diamonds and other rare earths are considered to be the
             rarest resources, it surprisingly is not. In the scale of the
-            universe, wood is the truely rarest resource, only found on
-            Earth.{" "}
+            universe, wood is the truely rarest resource, only found on Earth.
           </div>
         </div>
 
-        <div className="[grid-area:3/16/4/21] flex flex-col">
+        <div className="[grid-area:3/16/4/22] flex flex-col">
           <h1 className="text-2xl text-white font-semibold text-center">
             A wet place
           </h1>
           <div className="text-lg text-white font-semibold text-center">
-            {" "}
             Almost all of Earth's water is contained in its global ocean,
             covering 70.8% of Earth's crust. The remaining 29.2% of Earth's
             crust is land, most of which is located in the form of continental
-            landmasses within Earth's land hemisphere.{" "}
+            landmasses within Earth's land hemisphere.
           </div>
         </div>
       </div>
