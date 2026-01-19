@@ -1,4 +1,5 @@
 import "./App.css";
+import WeberLogo from "./assets/weber white logo.png";
 
 function App() {
   return (
@@ -8,13 +9,10 @@ function App() {
         <div className="aspect-[16/9] h-auto w-full bg-[url('https://i.pinimg.com/originals/21/08/6d/21086dbd5783d15f4b4d255ae5bba4b7.jpg')] bg-cover bg-center"></div>
       </div>
 
-      <div className="grid w-full grid-cols-[1fr_3.5fr_1fr] grid-rows-[15px_50px] gap-2 px-5 pb-2">
+      <div className="grid w-full grid-cols-[1fr_3.5fr_1fr] grid-rows-[15px_50px] gap-2 px-2 pb-2 sticky top-0">
         <div className="col-span-3"></div>
         <div className="flex place-items-center justify-center">
-          <img
-            className="h-full w-auto"
-            src="https://springblasters.com/cdn/shop/files/DFE4AF64-E6CE-4C82-A3C8-3821FCDD7AF5.jpg?v=1613640668&width=240"
-          />
+          <img className="h-full w-auto" src={WeberLogo} />
         </div>
 
         <nav className="col-span-1 flex flex-wrap justify-center-safe gap-x-4 gap-y-1 pe-5">
