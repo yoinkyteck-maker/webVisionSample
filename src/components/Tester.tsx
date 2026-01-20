@@ -2,7 +2,7 @@ import { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
 import Hero from "./Hero.tsx";
 import Analytics from "./Analytics.tsx";
-import Newsletter from "./newsletter.tsx";
+import Newsletter from "./Newsletter.tsx";
 import Cards from "./Cards.tsx";
 
 const Tester = () => {
