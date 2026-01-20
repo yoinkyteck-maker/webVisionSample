@@ -1,0 +1,6 @@
+@layer components {
+    .text-outline {
+        @apply drop-shadow-[0_3.2px_3.2px_rgba(0,0,0,0.8)];
+    }
+}
+
