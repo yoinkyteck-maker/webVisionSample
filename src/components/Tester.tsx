@@ -4,6 +4,7 @@ import Hero from "./Hero.tsx";
 import Analytics from "./Analytics.tsx";
 import Newsletter from "./Newsletter.tsx";
 import Cards from "./Cards.tsx";
+import Footer from "./Footer.tsx";
 
 const Tester = () => {
   return (
@@ -13,6 +14,7 @@ const Tester = () => {
       <Analytics />
       <Newsletter />
       <Cards />
+      <Footer />
     </>
   );
 };
@@ -26,7 +28,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-between px-8 items-center h-24 max-w-[1240] mx-auto text-white bg-black">
+      <div className="flex justify-between px-8 items-center h-24 max-w-[1240] mx-auto text-white bg-black sticky top-0 z-10">
         <h1 className="text-3xl font-bold text-orange-400 font-moonerfont">
           WEBER
         </h1>

@@ -16,7 +16,7 @@ const Analytics = () => {
               voluptatum, pariatur tenetur necessitatibus ullam expedita quis
               maxime optio. Illum mollitia quas nulla cum corporis.
             </p>
-            <button className="bg-black text-orange-400 rounded-md w-50 font-medium py-2 mx-auto md:mx-0 my-4">
+            <button className="bg-black text-orange-400  rounded-md w-50 font-medium py-2 mx-auto md:mx-0 my-4">
               Get viewing
             </button>
           </div>

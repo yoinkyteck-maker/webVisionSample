@@ -38,7 +38,7 @@ const Hero = () => {
           ></p>
         </div>
 
-        <button className="bg-orange-400 rounded-md w-50 font-medium py-1 mx-auto my-4">
+        <button className="bg-orange-400 hover:bg-orange-500 duration-300 rounded-md w-50 font-medium py-1 mx-auto my-4">
           Get Started
         </button>
       </div>
