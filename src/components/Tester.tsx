@@ -26,7 +26,7 @@ const Navbar = () => {
 
   return (
     <>
-      <div className="flex justify-between px-8 items-center h-24 max-w-[1240] mx-auto text-white">
+      <div className="flex justify-between px-8 items-center h-24 max-w-[1240] mx-auto text-white bg-black">
         <h1 className="text-3xl font-bold text-orange-400 font-moonerfont">
           WEBER
         </h1>

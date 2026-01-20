@@ -2,7 +2,7 @@ import "./Newsletter.css";
 
 const Newsletter = () => {
   return (
-    <div className="w-full py-16 text-white px-8">
+    <div className="w-full py-16 text-white px-8 bg-black">
       <div className="grid max-w-310 mx-auto lg:grid-cols-3 grid-rows-1">
         <div className="lg:col-span-2">
           <h1 className="md:text-3xl sm:text-2xl text-xl font-bold text-orange-400 py-2">

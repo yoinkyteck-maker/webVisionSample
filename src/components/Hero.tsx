@@ -21,7 +21,7 @@ const Hero = () => {
 
   return (
     <div className="text-white">
-      <div className="max-w-225 -mt-24 w-full h-screen mx-auto text-center flex flex-col justify-center">
+      <div className="max-w-225 -mt-24 w-full h-screen mx-auto text-center flex flex-col justify-center bg-black">
         <p className="text-outline text-orange-400 font-bold">
           MAKING GATEWAYS AND CONNECTIONS
         </p>
