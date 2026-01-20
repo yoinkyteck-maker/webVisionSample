@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 @layer base {
-  span{
-    background-color: white;
+  body {
+    background-color: black;
   }
 }
 
