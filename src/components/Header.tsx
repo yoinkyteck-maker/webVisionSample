@@ -10,9 +10,11 @@ const Navbar = () => {
   };
 
   return (
-    <div className="width-full bg-black/80 sticky top-0 z-10">
-      <div className="flex justify-between px-8 items-center h-20 max-w-310 mx-auto text-white">
-        <h1 className="text-3xl font-bold text-orange-400">WEBER</h1>
+    <>
+      <div className="flex justify-between px-8 items-center h-24 max-w-[1240] mx-auto text-white bg-black sticky top-0 z-10">
+        <h1 className="text-3xl font-bold text-orange-400 font-moonerfont">
+          weber
+        </h1>
         <ul className="hidden md:flex">
           <li className="p-4">
             <Link to="/">Home</Link>
@@ -41,7 +43,7 @@ const Navbar = () => {
           }
         >
           <h1 className="m-4 text-3xl font-bold text-orange-400 font-moonerfont">
-            WEBER
+            weber
           </h1>
 
           <ul>

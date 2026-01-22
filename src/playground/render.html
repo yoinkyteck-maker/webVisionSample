@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body>
+        <div id="threejsbackdrop"></div>
+        
+
+        <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@0.175.0/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/"
+                    
+                }
+            }
+        </script>
+        
+        <script type="module">
+            import * as THREE from 'three'; 
+            
+            import { STLLoader } from 'https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/loaders/STLLoader.js';
+            
+            import { OrbitControls } from 'https://cdn.jsdelivr.net/npm/three@0.175.0/examples/jsm/controls/OrbitControls.js';
+            
+
+            const loader = new STLLoader();
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera( 50, window.innerWidth / window.innerHeight, 0.1, 10000 );
+            camera.position.set( 100, 150, 100 );
+            camera.lookAt(0, 0, 0)
+            
+            const renderer = new THREE.WebGLRenderer({antialias: true, logarithmicDepthBuffer: true});
+            renderer.setSize( window.innerWidth, window.innerHeight);
+            // --- CRITICAL: Add the renderer to your HTML ---
+            document.getElementById('threejsbackdrop').appendChild(renderer.domElement);
+
+            // Add OrbitControls so you can move around and find the mesh
+            const controls = new OrbitControls(camera, renderer.domElement);
+            controls.autoRotate = true
+            // Autorotates with 000 as focus point
+            controls.cursor = new THREE.Vector3(0,0,0)
+            //15 seconds per orbit
+            controls.autoRotateSpeed = 4
+
+            const color = 0xFFFFFF;
+            const intensity = 2;
+            const light = new THREE.DirectionalLight(color, intensity);
+            light.position.set(-60, 60, 1060); 
+            scene.add( light );
+            scene.add(new THREE.HemisphereLight( 0xffffbb, 0x080820, 1 ))
+
+            // load mesh
+            const geometry = await loader.loadAsync( './dinosaur.5.stl' )
+            geometry.computeBoundingBox();
+            geometry.center();
+            const hatgeo = await loader.loadAsync("./top_hat_custom.stl")
+            const material = new THREE.MeshPhongMaterial({
+                color: 0xFF0000,    // red (can also use a CSS color string here)
+                flatShading: true,
+            });
+            const mesh = new THREE.Mesh( geometry, material )
+            const hatmesh = new THREE.Mesh (hatgeo, material)
+            window.mesh = mesh
+            // mesh.rotation.x += 3.14 / 4 * 3 - 0.4
+             mesh.rotation.x -= 3.14 / 2
+             mesh.rotation.z += 3.14
+            // mesh.position.y -= 20
+            hatmesh.position.x = 0
+            hatmesh.position.y = 30
+            hatmesh.position.z = 0
+            hatmesh.rotation.x -= 3.14/6
+            scene.add( mesh);
+            scene.add(hatmesh)
+            const radius = 120
+            const speed = 0.001
+            function animate() {
+                const time = Date.now() * speed;
+
+                // 2. Update camera position
+                // camera.position.x = Math.cos(time) * radius;
+                // camera.position.z = Math.sin(time) * radius;
+                camera.lookAt(0,0,0)
+                controls.update();
+                renderer.render( scene, camera );
+            }
+            
+            renderer.setAnimationLoop( animate );   
+        
+            
+        </script>
+        <style>
+            body {
+                font-family: sans-serif;
+            }
+            canvas {
+                position: relative;
+            }
+            .menu {
+                position: absolute;
+                background-color: white;
+                top: 20px;
+                left: 20px;
+                height: 250px;
+                width: 150px;
+                border: 2px solid grey;
+                border-radius: 15px;
+            }
+        </style>
+        <script>
+            window.addEventListener("DOMContentLoaded", () => {
+            console.log("hohih")
+            const dropdown = document.getElementById("colorPicker")
+            const dropdown2 = document.getElementById("hatPicker")
+     
+            dropdown.addEventListener("change", (event) => {
+                
+                const newColorHex = event.target.value
+                mesh.material.color.set(newColorHex)
+            })
+            dropdown2.addEventListener("change", (event) => {
+                
+                const hat = event.target.value
+                switch(hat){
+                    case "no":
+                        break
+                    case "tophat":
+                        break
+                }
+            })
+        })
+        </script>
+        <div class="menu">
+            <h1>Options</h1>
+            <h2>Colors!</h2>
+            <select id="colorPicker">
+                <option value="#FF0000">Red</option>
+                <option value="#FFD700">Gold</option>
+                <option value="#0000FF">Blue</option>
+                <option value="#00FF00">Green</option>
+                <option value="#800080">Purple</option>
+            </select>
+            <h2>Accessories!</h2>
+            <select id="hatPicker">
+                <option value="no">No Hat</option>
+                <option value="tophat">Hat</option>
+                
+                
+            </select>
+        </div>
+    </body>
+</html>

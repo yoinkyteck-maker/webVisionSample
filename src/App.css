@@ -1,5 +1,16 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: 'Mooner'; /* Name you will use in React */
+  src: local('Mooner'), 
+       url('./fonts/mooner-regular.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Helps prevent a flash of unstyled text */
+}
+@theme {
+  --font-moonerfont: "Mooner", sans-serif;
+}
 @layer base {
   body {
     background-color: black;
