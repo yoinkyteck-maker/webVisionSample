@@ -1,23 +1,6 @@
 import { useState } from "react";
 import { AiOutlineClose, AiOutlineMenu } from "react-icons/ai";
-import Hero from "./Hero.tsx";
-import Analytics from "./Analytics.tsx";
-import Newsletter from "./Newsletter.tsx";
-import Cards from "./Cards.tsx";
-import Footer from "./Footer.tsx";
-
-const Tester = () => {
-  return (
-    <>
-      <Navbar />
-      <Hero />
-      <Analytics />
-      <Newsletter />
-      <Cards />
-      <Footer />
-    </>
-  );
-};
+import { Link } from "react-router-dom";
 
 const Navbar = () => {
   const [navOn, setNavOn] = useState<Boolean>(false);
@@ -33,11 +16,21 @@ const Navbar = () => {
           weber
         </h1>
         <ul className="hidden md:flex">
-          <li className="p-4">Home</li>
-          <li className="p-4">Products</li>
-          <li className="p-4">Partners</li>
-          <li className="p-4">About Us</li>
-          <li className="p-4">Contact</li>
+          <li className="p-4">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="p-4">
+            <Link to="/Products">Products</Link>
+          </li>
+          <li className="p-4">
+            <Link to="/Partners">Partners</Link>
+          </li>
+          <li className="p-4">
+            <Link to="/AboutUs">About Us</Link>
+          </li>
+          <li className="p-4">
+            <Link to="/Contact">Contact</Link>
+          </li>
         </ul>
         <div onClick={handleNav} className="block md:hidden">
           {!navOn ? <AiOutlineMenu size={20} /> : <AiOutlineClose size={20} />}
@@ -62,8 +55,8 @@ const Navbar = () => {
           </ul>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
-export default Tester;
+export default Navbar;
