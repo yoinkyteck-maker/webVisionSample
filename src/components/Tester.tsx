@@ -30,7 +30,7 @@ const Navbar = () => {
     <>
       <div className="flex justify-between px-8 items-center h-24 max-w-[1240] mx-auto text-white bg-black sticky top-0 z-10">
         <h1 className="text-3xl font-bold text-orange-400 font-moonerfont">
-          WEBER
+          weber
         </h1>
         <ul className="hidden md:flex">
           <li className="p-4">Home</li>
@@ -50,7 +50,7 @@ const Navbar = () => {
           }
         >
           <h1 className="m-4 text-3xl font-bold text-orange-400 font-moonerfont">
-            WEBER
+            weber
           </h1>
 
           <ul>

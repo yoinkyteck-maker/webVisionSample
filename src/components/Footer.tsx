@@ -11,7 +11,7 @@ const Footer = () => {
     <div className="max-w-310 mx-auto grid py-16 px-8 lg:grid-cols-3 gap-8 text-white">
       <div>
         <h1 className="text-3xl font-bold text-orange-400 font-moonerfont">
-          WEBER
+          weber
         </h1>
         <p className="py-4">
           Did you know that in minecraft, the rarest death message occurs when

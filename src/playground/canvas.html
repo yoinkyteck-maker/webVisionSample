@@ -1,0 +1,85 @@
+<!DOCTYPE HTML>
+<body>
+    <canvas id="bg-canvas"></canvas>
+    <script>
+        window.addEventListener("DOMContentLoaded", () => {
+            const canvas = document.getElementById("bg-canvas")
+            
+            canvas.width = window.innerWidth;
+            canvas.height = (window.innerHeight / 100 * 125);
+            var ctx = canvas.getContext("2d");
+            var width = canvas.width;
+            //console.log(width)
+            var height = canvas.height;
+            var vw = canvas.width / 100;
+            var vh = canvas.height / 100;
+
+            // create arr of dots
+            var dotArr = []
+            var numberOfDots = 2
+            var rowHeight = 400 //in px
+            var radius = 80
+            var step = 0.02
+            var stepsPerTurn = 10000
+            var fps = 60
+            ctx.lineWidth = 4
+            ctx.strokeStyle = "white"
+            var i = 0
+            while(i < 6){
+                dotArr.push([Math.PI * 2 / numberOfDots * i, new Path2D()])
+                i++;
+            }
+            ctx.fillStyle = "black"
+            ctx.fillRect(0, 0, width, height)
+            
+            function fullHelix(centerX, startX, startY, endY, path, rotation) {
+                //console.log(endY)
+                
+                const dy = rowHeight / stepsPerTurn;
+                const dt = (2 * Math.PI) / stepsPerTurn;
+
+                // start
+                let t = 0
+                let y = startY;
+                let x = centerX + radius * Math.cos(t + rotation);
+                // Depth shading
+                let cosVal = Math.cos(t + rotation)
+                
+                path.moveTo(x, y);
+
+                while(y < endY) {
+                    
+                    t += dt;
+                    y += dy;
+                    
+                    x = centerX + radius * Math.cos(t + rotation);
+                    path.lineTo(x, y);
+                    
+                }
+                ctx.stroke(path)
+                
+                
+            }
+            var counter = 0
+            var rotation = 0.01
+            function animate(){
+                counter += 1
+                rotation += 0.01
+                ctx.fillStyle = "black"
+                ctx.fillRect(0, 0, width, height)
+                for(dot of dotArr){
+                    
+                    
+                    
+                    dot[0] = fullHelix(200, 220, 0, counter, new Path2D(), rotation)
+                }
+                //  setTimeout(() => {
+                    requestAnimationFrame(animate);
+                //  }, 1000 / fps);
+            }
+            
+            
+               requestAnimationFrame(animate);
+        })
+</script>
+</body>
